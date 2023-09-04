@@ -2,6 +2,9 @@ const { DataTypes } = require('sequelize');
 
 module.exports = sequelize => {
     sequelize.define('product', {
+        imgProfile: {
+            type: DataTypes.STRING
+        },
         nameProduct: {
             type: DataTypes.STRING
         },

@@ -1,18 +1,22 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = sequelize => {
-    sequelize.define('movement', {
-        type: {
-            type: DataTypes.STRING
+    sequelize.define('service', {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
         description: {
             type: DataTypes.STRING
         },
-        valor:{
-            type: DataTypes.INTEGER
-        },
         dayPay: {
             type: DataTypes.INTEGER
+        },
+        dayDisponibility: {
+            type: DataTypes.INTEGER
+        }, 
+        active: {
+            type: DataTypes.STRING
         }
     })
 }

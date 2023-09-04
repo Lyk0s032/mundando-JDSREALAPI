@@ -1,17 +1,15 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = sequelize => {
-    sequelize.define('inventary', {
-        nameBox: {
-            type: DataTypes.STRING
+    sequelize.define('category', {
+        imgCategory: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        reference:{
+        nameCategory: {
             type: DataTypes.STRING
         },
         type: {
-            type: DataTypes.STRING
-        },
-        unidad:{
             type: DataTypes.STRING
         },
         description:{

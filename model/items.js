@@ -1,18 +1,24 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = sequelize => {
-    sequelize.define('movement', {
-        type: {
+    sequelize.define('item', {
+        imgItem: {
             type: DataTypes.STRING
         },
-        description: {
+        nameItem: {
             type: DataTypes.STRING
         },
-        valor:{
+        details:{
+            type: DataTypes.STRING
+        },
+        price: {
             type: DataTypes.INTEGER
         },
-        dayPay: {
+        descuento:{
             type: DataTypes.INTEGER
+        },
+        state:{
+            type: DataTypes.STRING
         }
     })
 }

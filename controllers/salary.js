@@ -19,13 +19,13 @@ module.exports = {
     async createSalary(req, res){
         try{
             const { salario, prestaciones, transporte, dayPay, method, businessId, idPeople } = req.body;
-            if(!salario || !prestaciones || !transporte || !dayPay || !method || !businessId || !idPeople) return res.json({err: 'No puede dejar los campos vacios para agregar el salario'});
+            if(!salario || !prestaciones || !transporte || !dayPay || !method || !businessId || !idPeople) return res.status(401).json({err: 'No puede dejar los campos vacios para agregar el salario'});
             const userValidate = await person.findOne({
                 id: idPeople,
                 businessId
             });
 
-            if(!userValidate) return res.json({msg: 'No existe este colaborador en tu negocio.'});
+            if(!userValidate) return res.status(404).json({msg: 'No existe este colaborador en tu negocio.'});
 
             const addSalary = await salary.create({  
                 salario,
@@ -35,10 +35,10 @@ module.exports = {
                 method, 
                 personId: idPeople  
             });
-            res.json(addSalary);
+            res.status(200).json(addSalary);
 
         }catch(err){ 
-            console.log(err);
+            console.status(500).log(err);
         }
     }
 } 

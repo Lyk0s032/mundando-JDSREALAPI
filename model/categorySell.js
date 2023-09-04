@@ -1,20 +1,23 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = sequelize => {
-    sequelize.define('inventary', {
-        nameBox: {
+    sequelize.define('categorySell', {
+        name: {
             type: DataTypes.STRING
         },
-        reference:{
+        type:{
             type: DataTypes.STRING
         },
-        type: {
+        description: {
             type: DataTypes.STRING
         },
-        unidad:{
+        password: {
+            type: DataTypes.STRING
+        },  
+        state:{
             type: DataTypes.STRING
         },
-        description:{
+        color:{ 
             type: DataTypes.STRING
         }
     })
